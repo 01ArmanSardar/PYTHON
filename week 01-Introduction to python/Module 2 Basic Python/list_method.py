@@ -14,5 +14,6 @@ count_element=numbers.count(20) # 6
 print(count_element)
 numbers.sort()
 print(numbers)
-
+numbers.reverse()
+print(numbers)
 
