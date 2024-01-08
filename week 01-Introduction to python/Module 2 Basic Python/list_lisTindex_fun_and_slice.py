@@ -16,4 +16,4 @@ print(numbers[:6])#akhne amra sudhu end index dichi start index dei nai kintu py
 print(numbers[1:])#akhne amra sudhu start index dichi end index dei nai kintu python by default end index sesh projontho dhore niceh
 print(numbers[:])#jodhi start and end index kono tai nah dei tahole puro list tai print hoie jabhe
 
-print(numbers[::-1])
+print(numbers[::-1])#shortcut to reverse a list.
