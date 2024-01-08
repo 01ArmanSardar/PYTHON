@@ -1,0 +1,6 @@
+highest=max(10,20,30,90,50,60)
+highest=max([65,10,46,89,57,90])
+smallest=min([65,10,46,89,57,90])
+total=sum([65,10,46,89,57,90])
+count=len([65,10,46,89,57,90])
+print(highest,smallest,total,count)

@@ -8,5 +8,6 @@ def buy_things(item,price):
     print(f'previous balance value',balance)
     balance=balance-price
     print(f'balacne after bye {item}',balance)
+    local_variable='IphoneX'
 
 buy_things('sunglass',1000)
