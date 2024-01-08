@@ -22,7 +22,7 @@ def a_lot(num1,num2):
     sum=num1+num2
     multi=num1*num2
     remain=num1-num2
-    return [sum,multi,remain]
-    #return sum,multi,remain
+   # return [sum,multi,remain]  amrah caile avabhe rerurn korte parhi, avbhe pataleh by default akta list hisebhe return hobhe ans gulu
+    return sum,multi,remain
 everything=a_lot(20,10)
 print(everything)
