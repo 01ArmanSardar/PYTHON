@@ -11,7 +11,7 @@ print('total : ',total) """
 
 total=all_sum(45,47,89,11)
 print('all sum : ',total) """
-def all_sum(num1,num2,*numbers):# 
+def all_sum(num1,num2,*numbers):# akhne numbers a jeh value gulu passed tar tekeh 1st 2 tah value amrah num1 abong num2 teh rekhe dilam
     print(numbers) 
     sum=0
     for num in numbers:
