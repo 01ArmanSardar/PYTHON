@@ -1,1 +1,2 @@
-print(name2[4])
+from random import *
+from math import sleep
