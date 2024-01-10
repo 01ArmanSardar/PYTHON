@@ -1,3 +1,4 @@
+# tuples are immutable
 """ def multiple():
     return 3,4
 print(multiple())# lsit hocche [3rd backet] die ar tuple hocceh (first backet) die. """
