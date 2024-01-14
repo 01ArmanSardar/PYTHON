@@ -35,7 +35,7 @@ class exam:
     def attend_exam(self):
         print('thanks for attending')
     def get_marks(self,mymarks):
-        if mymarks>self.minimum_marks_for_Aplus:
+        if mymarks>self.minimum_marks_for_Aplus:# this homework this line is not work,homework is incomplete.
             print('you got a plus')
 
 myexam=exam('vigghan')
