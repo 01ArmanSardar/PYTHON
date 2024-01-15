@@ -1,4 +1,4 @@
-class Shopping:
+""" class Shopping:
     def __init__(self,name):
         self.name=name
         self.cart=[]
@@ -14,7 +14,7 @@ class Shopping:
         if amount<total:
             print('your amount is not enough')
         elif amount>total:
-            print(f'your give me{amount-total} money extra')
+            print(f'your give me {amount-total} money extra')
         else:
             print('OK')
 
@@ -24,4 +24,26 @@ arman.add_to_cart('alu',50,6)
 arman.add_to_cart('dim',12,24)
 arman.add_to_cart('rice',50,5)
 print(arman.cart)
-arman.checkout(1000)
+arman.checkout(1000) """
+
+#homework --Remove item in cart
+
+class shopping:
+    def __init__(self,name):
+        self.name=name
+        self.cart=[]
+    def add_to_cart(self,item,price,quantity):
+        product={'item':item,'price':price,'quantity':quantity}
+        self.cart.append(product)
+    def remove_item(self,itemss):
+        for items in self.cart:
+            if itemss==items['item']:
+                items['item']='nai'
+
+
+# homework is not correct.
+arman=shopping('arsa')
+arman.add_to_cart('alu',50,6)
+arman.add_to_cart('dim',12,24)
+print(arman.cart)
+
