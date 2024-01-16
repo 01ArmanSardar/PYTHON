@@ -24,4 +24,6 @@ class camera:
         self.pixel=pixel
     def change_lens(self):
         pass
-        
+
+aru_phone=phone(True)
+aru_phone.calling_someone(9089,'valo achi')
