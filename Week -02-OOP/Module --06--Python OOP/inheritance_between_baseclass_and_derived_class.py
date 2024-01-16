@@ -13,7 +13,7 @@ class laptop:
         self.memory=memory
     def coding(self):
         return f'learning python and practicing'
-class phone(gadget):
+class phone(gadget): #ai line tah teh jemon gadget class tah hocceh parent class ar phone class tah hocceh derived class,toh amrah parent class tekeh common attribute gulu nie derived class a use korte parbho,sudhu atrriut nah amra caileh common method parent class tekeh derived class a niteh parih
     def __init__(self,name,brand,price,color,dual_sim):
         self.dual_sim=dual_sim
         super().__init__(name,brand,price,color)
