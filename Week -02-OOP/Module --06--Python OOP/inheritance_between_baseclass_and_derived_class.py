@@ -13,9 +13,14 @@ class laptop:
         self.memory=memory
     def coding(self):
         return f'learning python and practicing'
-class phone:
+class phone(gadget):
     def __init__(self,name,brand,price,color,dual_sim):
         self.dual_sim=dual_sim
+        super().__init__(name,brand,price,color)
+    
+    def __repr__(self):
+        return f'phone :{self.name} {self.brand} {self.price} {self.color} {self.dual_sim}'
+        
     def calling_someone(self,number,sms):
         print(f'calling {number}for this message{sms}')
 
@@ -25,5 +30,7 @@ class camera:
     def change_lens(self):
         pass
 
-aru_phone=phone(True)
-aru_phone.calling_someone(9089,'valo achi')
+aru_phone=phone('samsung','SAMSUNG',12393,'blue','robi,airtel')
+print(aru_phone)
+print(aru_phone.name)
+print(aru_phone)
