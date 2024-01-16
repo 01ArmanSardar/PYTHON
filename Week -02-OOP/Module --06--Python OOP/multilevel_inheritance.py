@@ -6,7 +6,7 @@ class vehicale:
         return f'{self.name} {self.price}'
     def move(self):
         pass
-class Bus(vehicale):
+class Bus(vehicale):# akhne Bus class tah vehicale class tekeh common attribute gulah niceh
     def __init__(self, name, price,seat):
         self.seat=seat
         super().__init__(name, price)
@@ -14,11 +14,7 @@ class Bus(vehicale):
         
         return super().__repr__()
 
-class track(vehicale):
-    def __init__(self, name, price,weight):
-        self.weight=weight
-        super().__init__(name, price)
-class ACbus(Bus):
+class ACbus(Bus):# akahne ACbus class tah abr Bus class teh common attribute gula niceh ,ar bepar ta kei multilevel inheritance bolah hoi
     def __init__(self, name, price, seat,tempareture):
         self.tempareture=tempareture
         super().__init__(name, price, seat)
