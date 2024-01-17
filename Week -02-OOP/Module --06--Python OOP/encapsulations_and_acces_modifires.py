@@ -14,7 +14,8 @@ print(rufsun.holder_name)
 rufsun.deposit(40000)
 print(rufsun.get_balance())
 #................ below line show how to try acces private attribute in class er bahireh
-# print(dir(rufsun))
+# below is optional for acces private attribute in  public.
+print(dir(rufsun))
 print(rufsun._Bank__balance)
 
 
