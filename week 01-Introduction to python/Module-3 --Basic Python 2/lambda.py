@@ -1,6 +1,6 @@
 """ def doubled (num):
     return num*2 """
-doubled=lambda num:num*2 # uporer function tah jeh kaj korceh ,ai line tao same kaj tai korche, lambda holo amn aktah system jeath die amrah choto katho function er kaj ai ak line koreh pelteh parih, lambda tah kichu tah list comprehension er motoi.
+""" doubled=lambda num:num*2 # uporer function tah jeh kaj korceh ,ai line tao same kaj tai korche, lambda holo amn aktah system jeath die amrah choto katho function er kaj ai ak line koreh pelteh parih, lambda tah kichu tah list comprehension er motoi.
 result=doubled(44)
 print(result)
 
@@ -22,4 +22,6 @@ actors=[
 {'name':'shaon','age':32},
 ]
 juniors=filter(lambda actor:actor['age']<40,actors)
-print(list(juniors))
+print(list(juniors)) """
+num = lambda a:a*a
+print(num(2**2))
