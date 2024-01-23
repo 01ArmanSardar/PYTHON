@@ -12,7 +12,7 @@ class Ride_sharing:
     def add_driver(self,driver):
         self.drivers.append(driver)
     def __repr__(self):
-        return f'{self.name} with friends : {len(self.riders)} adn drivers {len(self.drivers)}'
+        return f'{self.name} with riders : {len(self.riders)} and drivers {len(self.drivers)}'
         
     
 class User(ABC):
@@ -43,11 +43,15 @@ class Rider(User):
             self.walet+=amount
     def update_location(self,curent_location):
         self.curent_location=curent_location
-    def request_ride(self,location,destanation):
+    def request_ride(self,ride_sharing,destanation):
         if not self.curent_ride:
             ride_request=Ride_Request(self,destanation)
-            ride_matcher=Ride_Matching()
-            self._curent_ride=ride_matcher.find_driver(ride_request)
+            ride_matcher=Ride_Matching(ride_sharing.drivers)
+            ride=ride_matcher.find_driver(ride_request)
+            print('got the ride',ride)
+            self.curent_ride=ride
+    def show_current_ride(self):
+        print(self.curent_ride)
 
 class Driver(User):
     def __init__(self, name, email,nid,curent_location):
@@ -76,13 +80,15 @@ class Ride:
         self.end_time=datetime.now()
         self.rider.wallet -=self.estimeted_fare
         self.driver.wallet +=self.estimeted_fare
+    def __repr__(self):
+        return f'ride details .started:{self.start_location}, to {self.end_location}'
 class Ride_Request:
     def __init__(self,rider,end_location):
         self.rider=rider
         self.end_location=end_location
 class Ride_Matching:
-    def __init__ (self):
-        self.avilable_drivers=[]
+    def __init__ (self,drivers):
+        self.avilable_drivers=drivers
     def find_driver(self,ride_request):
         if len(self.avilable_drivers)>0:
             #TODO :find the closest driver of the rider
@@ -122,3 +128,5 @@ joy_bangla_ride_sharing.add_rider('arman')
 kala_pakhi=Driver('kala pakhi','kalasada@.com',1254,'gulshan 1')
 joy_bangla_ride_sharing.add_driver(kala_pakhi)
 print(joy_bangla_ride_sharing)
+Arman.request_ride(joy_bangla_ride_sharing,'Uttara')
+Arman.show_current_ride()
