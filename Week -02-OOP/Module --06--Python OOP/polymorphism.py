@@ -1,3 +1,5 @@
+# poly --> many (multiple)
+#morph --> shape/different
 # ai jeh program tah teh make_sound jeh method tah,amrah sei method tah keh,parent class chara child class a o kintu use kortechi ,abong ai make_sound method tah akek  class a akek implimantation korteche,akek class seh akek result dicceh,ai bisoy tai mulotoh polymorphism,,,manhe poly-manhe bohu,morphi-manhe vibinno, manhe aktah method er bohu abong vibhinno vabhe bebohar tah kei polymorphism bolah hoie takhe.
 class Animal:
     def __init__(self,name):

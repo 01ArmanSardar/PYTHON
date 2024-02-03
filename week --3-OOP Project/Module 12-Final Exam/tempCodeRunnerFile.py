@@ -1,6 +1,5 @@
-if self.loan_limit>0:
-            self.balance+=amount
-            self.loan_limit-=1
-            # self.total_loan+=amount
-        else:
-            print('your loan limit exceeded')
+a = input("Savings Account or Current Account (svA/cuA) :")
+            if a == "sv":
+                currentUser = SavingsAccount(name, email, addrs)
+            else:
+                currentUser = CurrentAccount(name, email, addrs)

@@ -1,1 +1,0 @@
-print('amar name arman')

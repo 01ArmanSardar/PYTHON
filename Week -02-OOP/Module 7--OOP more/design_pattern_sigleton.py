@@ -13,6 +13,7 @@ class Singleton:
         if Singleton.__instance is None:
             Singleton()
         return Singleton.__instance
+
 first =Singleton.get_instance()
 print(first)
 last=Singleton.get_instance()

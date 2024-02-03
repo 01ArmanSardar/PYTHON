@@ -1,4 +1,5 @@
-class User:
+from abc import ABC ,abstractmethod
+class User(ABC):
     def __init__(self,name,phone,email,address) -> None:
         self.name=name
         self.phone=phone
@@ -9,6 +10,7 @@ class Customer(User):
     def __init__(self, name,phone,email,address,money) -> None:
         self.wallet=money
         self.__order=None
+        self.due_amount=0
         super().__init__(name,phone,email,address)
     @property
     def order(self):
@@ -20,7 +22,8 @@ class Customer(User):
     
     def place_order(self,order):
         self.order=order
-        print(f'{self.name} placed an order {order.items}')
+        self.due_amount += order.bill
+        print(f'{self.name} placed an order with bill {order.bill}')
 
     def eat_food(self,order):
         print(f'{self.name} eating food {order.items}')
@@ -33,6 +36,15 @@ class Customer(User):
 
     def write_review(self,stars):
         pass
+# ................
+class Order:
+    def __init__(self,customer,items) -> None:
+        self.customer=customer
+        self.items=items
+        total=0
+        for item in items:
+            total+=item.price
+        self.bill=total
 
 #...........................................................
 class Employes(User):
@@ -75,6 +87,7 @@ class Manager(Employes):
 class Resturant:
     def __init__(self,name,rent,menu=[]) -> None:
         self.name=name
+        self.orders=[]
         self.chief=None
         self.server=None
         self.manager=None
@@ -91,12 +104,16 @@ class Resturant:
             self.server==employe
         elif employe_type=='manager':
             self.manager=employe
+    def add_order(self,order):
+        self.orders.append(order)
     def receive_payment(self,order,amount,customer):
         if amount>=order.bill:
             self.revenue+=order.bill
             self.balance+=order.bill
             customer.due_amount=0
             return amount-order.bill
+        else:
+            print('not enough money')
     def pay_expanse(self,amount,description):
         if amount<self.balance:
             self.expanse+=amount
@@ -105,7 +122,10 @@ class Resturant:
         else:
             print(f'not enough money to pay {amount}')
     def pay_salary(self,employee):
+        print(f'paying salary for {employee.name}salary: {employee.salary}')
         if employee.salary<self.balance:
+            self.balance-=employee.salary
+            self.expanse+=employee.salary
             employee.recive_salary()
             
     def show_employees(self):
@@ -167,7 +187,7 @@ class Menu:
 #..................................................................
 menu=Menu()
 
-pizza_1=Pizza('shutki pizza',600,'larg',['shutki','onion'])
+pizza_1=Pizza('shutki pizza',6000,'larg',['shutki','onion'])
 menu.add_in_menu('pizza',pizza_1)
 pizza_2=Pizza('alu pizza',400,'large',['potato','onion','oil'])
 menu.add_in_menu('pizza',pizza_2)
@@ -199,5 +219,21 @@ server=Server('chotu server',7,'nai@jai.com','resturant',200,'march 1 2020','ser
 resturant.add_employee('serverr',server)
 #show employees 
 resturant.show_employees()
-# create customer object
-customer_1=Customer('sakib khan',)
+
+#1 customer placing a order
+customer_1=Customer('sakib khan',6,'king@khan','banani',100000)
+order_1=Order(customer_1,[pizza_3,pizza_1,coffe])
+customer_1.place_order(order_1)
+resturant.add_order(order_1)
+
+#customer_1 paying for order_1
+resturant.receive_payment(order_1,15000,customer_1)
+
+print(f'revenue is {resturant.revenue}, and  balance is {resturant.balance} after first customer')
+
+#PAY RENT
+resturant.pay_expanse(resturant.rent,'rent')
+print(f'after rent revenue {resturant.revenue}, and  balance is {resturant.balance} and expanse {resturant.expanse}')
+
+resturant.pay_salary(chef)
+print(f'after salary revenue {resturant.revenue}, and  balance is {resturant.balance} and expanse {resturant.expanse}')
